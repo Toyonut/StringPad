@@ -1,3 +1,5 @@
+'use strict'
+
 function PadLeft (checkString, requiredLength, padChar = ' ') {
   checkString = checkString.toString()
   padChar = padChar.toString()
