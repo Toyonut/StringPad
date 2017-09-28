@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 const { PadLeft } = require('./index')
 const { PadRight } = require('./index')
 const { expect } = require('chai')
