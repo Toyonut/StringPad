@@ -21,4 +21,4 @@ console.log(PadRight('bar', 5)) -> 'bar  '
 ```
 
 
-Made using [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
