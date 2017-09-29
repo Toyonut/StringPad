@@ -6,6 +6,7 @@ const { expect } = require('chai')
 describe('PadLeft', () => {
   it('should return a string', () => {
     expect(PadLeft('Hello', 10)).to.be.a.string
+    expect(PadLeft('Hello', 10, ' ')).to.be.a.string
   })
 
   it('Should return a string of the correct length', () => {
@@ -37,6 +38,13 @@ describe('PadLeft', () => {
 
   it('Should still be a string even if the pad char is a number', () => {
     expect(PadLeft('Hello', 10, 1)).to.be.a.string
+    expect(PadLeft('Hello', 10, 0)).to.be.a.string
+  })
+
+  // How can we do this without breaking the string length if using multiple pad chars?
+  xit('Should return the original length string if it is longer than the required length', () => {
+    expect(PadLeft('Hello', 3, '  ')).to.equal('Hello')
+    expect(PadLeft('Hello', 3)).to.equal('Hello')
   })
 
   it('Should be a left padded string', () => {
@@ -52,6 +60,7 @@ describe('PadLeft', () => {
 describe('PadRight', () => {
   it('should return a string', () => {
     expect(PadRight('Hello', 10)).to.be.a.string
+    expect(PadRight('Hello', 10, ' ')).to.be.a.string
   })
 
   it('Should return a string of the correct length', () => {
@@ -83,6 +92,13 @@ describe('PadRight', () => {
 
   it('Should still be a string even if the pad char is a number', () => {
     expect(PadRight('Hello', 10, 1)).to.be.a.string
+    expect(PadRight('Hello', 10, 0)).to.be.a.string
+  })
+
+  // How can we do this without breaking the string length if using multiple pad chars?
+  xit('Should return the original length string if it is longer than the required length', () => {
+    expect(PadRight('Hello', 3, '  ')).to.equal('Hello')
+    expect(PadRight('Hello', 3)).to.equal('Hello')
   })
 
   it('Should be a right padded string', () => {
