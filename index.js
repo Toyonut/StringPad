@@ -10,7 +10,9 @@ function PadLeft (checkString, requiredLength, padChar = ' ') {
 
   if (checkString.length === requiredLength) {
     return checkString
-  } else if (checkString.length > requiredLength) {
+  }
+
+  if (checkString.length > requiredLength) {
     let trimAmount = checkString.length - requiredLength
     return checkString.slice(trimAmount)
   } else {
@@ -29,7 +31,9 @@ function PadRight (checkString, requiredLength, padChar = ' ') {
 
   if (checkString.length === requiredLength) {
     return checkString
-  } else if (checkString.length > requiredLength) {
+  }
+
+  if (checkString.length > requiredLength) {
     let trimAmount = (requiredLength - checkString.length)
     return checkString.slice(0, trimAmount)
   } else {
