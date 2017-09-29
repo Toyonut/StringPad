@@ -1,7 +1,7 @@
 {
   "name": "lpad",
   "version": "1.0.0",
-  "description": "a recursive left pad operation",
+  "description": "a recursive left and right pad operation",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
