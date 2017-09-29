@@ -19,8 +19,8 @@ console.log(PadRight('bar', 5)) -> 'bar  '
 ```
 
 **Note** The function has been changed so that if the padChar parameter is multiple characters, it will be trimmed if it goes over the required length.
-A side effect of this is that if the requiredLength is less than the checkString length, the string will be trimmed to the required length.
-Not sure if this is a good or bad thing.
+If the requiredLength is less that the length of the string, it will be returned as is. There is one exception to this shown by the failing test, if the string leading character as the pad character in LeftPad it will be trimmed to the requiredLength. The same goes for the trailing characters in RightPad.
+Not sure how to solve this one, going to sleep.
 
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)

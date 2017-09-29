@@ -46,10 +46,11 @@ describe('PadLeft', () => {
     expect(PadLeft('Hello', 10, 0)).to.be.a.string
   })
 
-  // How can we do this without breaking the string length if using multiple pad chars?
-  xit('Should return the original length string if it is longer than the required length', () => {
+  it('Should return the original length string if it is longer than the required length', () => {
     expect(PadLeft('Hello', 3, '  ')).to.equal('Hello')
     expect(PadLeft('Hello', 3)).to.equal('Hello')
+    // this fails the test. The string will be trimmed to 3 characters.
+    expect(PadLeft('00000', 3, '0')).to.equal('00000')
   })
 
   it('Should be a left padded string', () => {
@@ -105,10 +106,11 @@ describe('PadRight', () => {
     expect(PadRight('Hello', 10, 0)).to.be.a.string
   })
 
-  // How can we do this without breaking the string length if using multiple pad chars?
-  xit('Should return the original length string if it is longer than the required length', () => {
+  it('Should return the original length string if it is longer than the required length', () => {
     expect(PadRight('Hello', 3, '  ')).to.equal('Hello')
     expect(PadRight('Hello', 3)).to.equal('Hello')
+    // this fails the test. The string will be trimmed to 3 characters.
+    expect(PadRight('00000', 3, 0)).to.equal('00000')
   })
 
   it('Should be a right padded string', () => {
