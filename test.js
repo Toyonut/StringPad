@@ -9,6 +9,11 @@ describe('PadLeft', () => {
     expect(PadLeft('Hello', 10, ' ')).to.be.a.string
   })
 
+  it('should throw if length is not a number', () => {
+    expect(PadLeft.bind('Hello', 'c')).to.throw('Length should be a number')
+    expect(PadLeft.bind('Hello', 'x', ' ')).to.throw('Length should be a number')
+  })
+
   it('Should return a string of the correct length', () => {
     expect((PadLeft('hello', 20)).length).to.equal(20)
     expect((PadLeft('hello', 40)).length).to.equal(40)
@@ -61,6 +66,11 @@ describe('PadRight', () => {
   it('should return a string', () => {
     expect(PadRight('Hello', 10)).to.be.a.string
     expect(PadRight('Hello', 10, ' ')).to.be.a.string
+  })
+
+  it('should throw if length is not a number', () => {
+    expect(PadRight.bind('Hello', 'c')).to.throw('Length should be a number')
+    expect(PadRight.bind('Hello', 'x', ' ')).to.throw('Length should be a number')
   })
 
   it('Should return a string of the correct length', () => {

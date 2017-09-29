@@ -4,6 +4,10 @@ function PadLeft (checkString, requiredLength, padChar = ' ') {
   checkString = checkString.toString()
   padChar = padChar.toString()
 
+  if (typeof requiredLength !== 'number') {
+    throw new TypeError('Length should be a number')
+  }
+
   if (checkString.length === requiredLength) {
     return checkString
   } else if (checkString.length > requiredLength) {
@@ -18,6 +22,10 @@ function PadLeft (checkString, requiredLength, padChar = ' ') {
 function PadRight (checkString, requiredLength, padChar = ' ') {
   checkString = checkString.toString()
   padChar = padChar.toString()
+
+  if (typeof requiredLength !== 'number') {
+    throw new TypeError('Length should be a number')
+  }
 
   if (checkString.length === requiredLength) {
     return checkString
