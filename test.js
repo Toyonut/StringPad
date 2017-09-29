@@ -1,7 +1,6 @@
 /* eslint-env mocha */
 
-const { PadLeft } = require('./index')
-const { PadRight } = require('./index')
+const { PadLeft, PadRight } = require('./index')
 const { expect } = require('chai')
 
 describe('PadLeft', () => {
@@ -27,6 +26,13 @@ describe('PadLeft', () => {
     expect((PadLeft('hello', 11, 'a')).substring(0, 6)).to.equal('aaaaaa')
     expect((PadLeft('hello', 6, '7')).substring(0, 1)).to.equal('7')
     expect((PadLeft('hello', 10, 3)).substring(0, 5)).to.equal('33333')
+  })
+
+  it('Should be trimmed to the correct length if the string goes over the required length', () => {
+    expect((PadLeft('hello', 20, 'vv')).length).to.equal(20)
+    expect((PadLeft('hello', 9, 'zzz')).substring(0, 4)).to.equal('zzzz')
+    expect((PadLeft('hello', 11, 'aaaaa')).substring(0, 6)).to.equal('aaaaaa')
+    expect((PadLeft('hello', 10, '    ')).substring(0, 5)).to.equal('     ')
   })
 
   it('Should still be a string even if the pad char is a number', () => {
@@ -66,6 +72,13 @@ describe('PadRight', () => {
     expect((PadRight('hello', 11, 'a')).slice(-6)).to.equal('aaaaaa')
     expect((PadRight('hello', 6, '7')).slice(-1)).to.equal('7')
     expect((PadRight('hello', 10, 3)).slice(-5)).to.equal('33333')
+  })
+
+  it('Should be trimmed to the correct length if the string goes over the required length', () => {
+    expect((PadRight('hello', 20, 'vv')).length).to.equal(20)
+    expect((PadRight('hello', 9, 'zzz')).slice(-4)).to.equal('zzzz')
+    expect((PadRight('hello', 11, 'aaaaa')).slice(-6)).to.equal('aaaaaa')
+    expect((PadRight('hello', 10, '    ')).slice(-5)).to.equal('     ')
   })
 
   it('Should still be a string even if the pad char is a number', () => {
