@@ -34,12 +34,13 @@ If the requiredLength is less that the length of the string, it will be returned
 The regular imperative function is now the index.js as it satisfies all tests and works well.
 
 **The recursive one...**
-the Recursive function had one exception that would fail the 'Should return the original length string if it is longer than the required length' test. If the string leading character is the same as the pad character in LeftPad it will be trimmed to the requiredLength. The same goes for the trailing characters in RightPad.
+The Recursive function had one exception that would fail the 'Should return the original length string if it is longer than the required length' test. If the string leading character is the same as the pad character in LeftPad it will be trimmed to the requiredLength. The same goes for the trailing characters in RightPad.
 This doesn't seem solvable while using a recursive function as the whole function is called each time.
 
-__possible solutions if we want the recursive function__
+__Possible solutions if we want the recursive function__
 1. We only allow padding with a single character
 2. We trim all strings to requiredLength regardless which means your string may be truncated.
-the current recursive implementation can lead to unexpected behaviour somewhere beteen the two above options... There may be a way around it I am not seeing yet that meets all the test expectations.
+
+The current recursive implementation can lead to unexpected behaviour somewhere beteen the two above options... There may be a way around it I am not seeing yet that meets all the test expectations.
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
