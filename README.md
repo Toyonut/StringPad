@@ -18,8 +18,8 @@ console.log(PadRight('bar', 5)) -> 'bar  '
 ```
 
 **Expectations**
-1. should return a string
-2. should throw TypeError if requiredLength is not a number
+1. Should return a string
+2. Should throw TypeError if requiredLength is not a number
 3. Should return a string of the correct length
 4. Should be padded with a space if no char parameter is specified
 5. Should be padded with the specified char if char parameter is specified
@@ -40,6 +40,7 @@ This doesn't seem solvable while using a recursive function as the whole functio
 __Possible solutions if we want the recursive function__
 1. We only allow padding with a single character
 2. We trim all strings to requiredLength regardless which means your string may be truncated.
+3. We use the regular imperative function with an inner recursive function in place of the do-while loop, but that is more complex and gains little.
 
 The current recursive implementation can lead to unexpected behaviour somewhere beteen the two above options... There may be a way around it I am not seeing yet that meets all the test expectations.
 
