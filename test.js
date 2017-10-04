@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 
-const { PadLeft, PadRight } = require('./index')
+const { PadLeft, PadRight } = require('./recurseExperiment')
 const { expect } = require('chai')
 
 describe('PadLeft', () => {
@@ -49,7 +49,6 @@ describe('PadLeft', () => {
   it('Should return the original length string if it is longer than the required length', () => {
     expect(PadLeft('Hello', 3, '  ')).to.equal('Hello')
     expect(PadLeft('Hello', 3)).to.equal('Hello')
-    // this fails the test. The string will be trimmed to 3 characters.
     expect(PadLeft('00000', 3, '0')).to.equal('00000')
   })
 
@@ -60,6 +59,7 @@ describe('PadLeft', () => {
     expect((PadLeft('hello', 10, 9))).to.equal('99999hello')
     expect((PadLeft('hello', 8, 'z'))).to.equal('zzzhello')
     expect((PadLeft('hello', 12, 'w'))).to.equal('wwwwwwwhello')
+    expect((PadLeft('hello', 12, 'ww'))).to.equal('wwwwwwwhello')
   })
 })
 
@@ -109,7 +109,6 @@ describe('PadRight', () => {
   it('Should return the original length string if it is longer than the required length', () => {
     expect(PadRight('Hello', 3, '  ')).to.equal('Hello')
     expect(PadRight('Hello', 3)).to.equal('Hello')
-    // this fails the test. The string will be trimmed to 3 characters.
     expect(PadRight('00000', 3, 0)).to.equal('00000')
   })
 
@@ -120,5 +119,6 @@ describe('PadRight', () => {
     expect((PadRight('hello', 10, 9))).to.equal('hello99999')
     expect((PadRight('hello', 8, 'z'))).to.equal('hellozzz')
     expect((PadRight('hello', 12, 'w'))).to.equal('hellowwwwwww')
+    expect((PadRight('hello', 12, 'ww'))).to.equal('hellowwwwwww')
   })
 })
