@@ -8,26 +8,18 @@ function PadLeft (checkString, requiredLength, padChar = ' ') {
     throw new TypeError('Length should be a number')
   }
 
-  if (checkString.length === requiredLength) {
+  if (checkString.length >= requiredLength) {
     return checkString
   }
 
-  if (checkString.length > requiredLength) {
-    let trimAmount = (requiredLength - checkString.length)
-    return checkString.slice(0, trimAmount)
+  let paddedString = `${padChar}${checkString}`
+
+  if (paddedString.length > requiredLength) {
+    let trimAmount = paddedString.length - requiredLength // gives positive number to trim from start of string.
+    return paddedString.slice(trimAmount)
   }
 
-  if (checkString.length > requiredLength) {
-    if (checkString.substring(0, padChar.length) !== padChar) {
-      return checkString
-    } else {
-      let trimAmount = checkString.length - requiredLength
-      return checkString.slice(trimAmount)
-    }
-  } else {
-    let paddedString = `${padChar}${checkString}`
-    return PadLeft(paddedString, requiredLength, padChar)
-  }
+  return PadLeft(paddedString, requiredLength, padChar)
 }
 
 function PadRight (checkString, requiredLength, padChar = ' ') {
@@ -38,11 +30,17 @@ function PadRight (checkString, requiredLength, padChar = ' ') {
     throw new TypeError('Length should be a number')
   }
 
-  if (checkString.length === requiredLength) {
+  if (checkString.length >= requiredLength) {
     return checkString
   }
 
   let paddedString = `${checkString}${padChar}`
+
+  if (paddedString.length > requiredLength) {
+    let trimAmount = (requiredLength - paddedString.length) // gives negative number to trim from end of string
+    return paddedString.slice(0, trimAmount)
+  }
+
   return PadRight(paddedString, requiredLength, padChar)
 }
 
