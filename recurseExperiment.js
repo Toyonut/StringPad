@@ -13,6 +13,11 @@ function PadLeft (checkString, requiredLength, padChar = ' ') {
   }
 
   if (checkString.length > requiredLength) {
+    let trimAmount = (requiredLength - checkString.length)
+    return checkString.slice(0, trimAmount)
+  }
+
+  if (checkString.length > requiredLength) {
     if (checkString.substring(0, padChar.length) !== padChar) {
       return checkString
     } else {
@@ -37,17 +42,8 @@ function PadRight (checkString, requiredLength, padChar = ' ') {
     return checkString
   }
 
-  if (checkString.length > requiredLength) {
-    if (checkString.slice(padChar.length * -1) !== padChar) {
-      return checkString
-    } else {
-      let trimAmount = (requiredLength - checkString.length)
-      return checkString.slice(0, trimAmount)
-    }
-  } else {
-    let paddedString = `${checkString}${padChar}`
-    return PadRight(paddedString, requiredLength, padChar)
-  }
+  let paddedString = `${checkString}${padChar}`
+  return PadRight(paddedString, requiredLength, padChar)
 }
 
 module.exports = { PadLeft, PadRight }
