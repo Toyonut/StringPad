@@ -1,9 +1,6 @@
 'use strict'
 
 function PadLeft (checkString, requiredLength, padChar = ' ') {
-  checkString = checkString.toString()
-  padChar = padChar.toString()
-
   if (typeof requiredLength !== 'number') {
     throw new TypeError('Length should be a number')
   }
@@ -23,9 +20,6 @@ function PadLeft (checkString, requiredLength, padChar = ' ') {
 }
 
 function PadRight (checkString, requiredLength, padChar = ' ') {
-  checkString = checkString.toString()
-  padChar = padChar.toString()
-
   if (typeof requiredLength !== 'number') {
     throw new TypeError('Length should be a number')
   }
